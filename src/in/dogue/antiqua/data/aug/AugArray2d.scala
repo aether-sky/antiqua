@@ -9,7 +9,7 @@ import javax.imageio.ImageIO
 import in.dogue.antiqua.data.Array2d
 
 class AugArray2d[T](arr:Array2d[T]) {
-  def render(path:String)(f:T => Color) {
+  def render(path:String)(f:T => Color): Unit = {
     def cl(c:Color) = com.badlogic.gdx.graphics.Color.rgb888(c.toLibgdxColor)
     val img = new BufferedImage(arr.cols, arr.rows, BufferedImage.TYPE_INT_RGB)
     arr.foreach { case (p, t) =>

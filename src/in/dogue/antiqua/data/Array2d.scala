@@ -1,6 +1,7 @@
 package in.dogue.antiqua.data
 
 import in.dogue.antiqua.Antiqua._
+import scala.collection.parallel.CollectionConverters._
 
 object Array2d {
   def tabulate[T](cols:Int, rows:Int)(f:(Int,Int) => T):Array2d[T] = {
@@ -58,7 +59,7 @@ class Array2d[T](private val elements:Vector[T],
     }
   }
 
-  def foreach(f:(Cell,T) => Unit) {
+  def foreach(f:(Cell,T) => Unit):Unit = {
     val _ = Array2d.tabulate(cols, rows) { case ij =>
       val elt = get(ij)
       f(ij, elt)

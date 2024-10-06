@@ -9,9 +9,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="libs1" level="project" />
+    <orderEntry type="library" name="libs-scala-concurrency" level="project" />
     <orderEntry type="library" name="libs" level="project" />
+    <orderEntry type="library" name="scala-sdk-3.5.1" level="application" />
     <orderEntry type="module" module-name="gleany" />
-    <orderEntry type="library" name="scala-sdk-2.12.1" level="application" />
   </component>
 </module>

@@ -22,7 +22,7 @@ class RandomQueue[T](seed:Long) {
 
   def length = buffer.length
 
-  private def swap(i:Int, j:Int) {
+  private def swap(i:Int, j:Int):Unit = {
     val temp = buffer(i)
     buffer(i) = buffer(j)
     buffer(j) = temp

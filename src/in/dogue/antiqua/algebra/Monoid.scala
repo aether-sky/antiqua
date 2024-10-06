@@ -15,7 +15,7 @@ trait Monoid[M] {
 
 
 object Monoid {
-  implicit def mkMonoidOps[T](lhs:T)(implicit ev:Monoid[T])  = new ev.MonoidOps(lhs)
+  implicit def mkMonoidOps[T](lhs:T)(implicit ev:Monoid[T]): ev.MonoidOps = new ev.MonoidOps(lhs)
 
   implicit object StringMonoid extends Monoid[String] {
     def zero = ""

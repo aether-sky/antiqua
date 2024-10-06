@@ -4,6 +4,7 @@ import com.deweyvm.gleany.data.Recti
 import in.dogue.antiqua.data.Array2d
 import in.dogue.antiqua.Antiqua
 import Antiqua._
+import scala.collection.parallel.CollectionConverters._
 
 object TileRenderer {
   def create(cols:Int, rows:Int)  = TileRenderer(cols, rows, Map(), Seq(), (0,0))

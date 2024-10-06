@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType
 import in.dogue.antiqua.data.Code
 
 case class OglSprite(t:TextureRegion, color:Color) {
-  def draw(batch:SpriteBatch, x:Int, y:Int) {
+  def draw(batch:SpriteBatch, x:Int, y:Int): Unit = {
     batch.setColor(color.toLibgdxColor)
     batch.draw(t, x, y)
   }
@@ -56,20 +56,20 @@ class Renderer(screenWidth:Int, screenHeight:Int, zoom:Int, tileset:Tileset){
   private val spriteDraws = ArrayBuffer[() => Unit]()
   private val shapeDraws = ArrayBuffer[() => Unit]()
 
-  def drawSprite(s:Sprite, x:Int, y:Int) {
+  def drawSprite(s:Sprite, x:Int, y:Int): Unit = {
     spriteDraws.append(() => {
       s.setPosition(x, y)
       s.draw(batch)
     })
   }
 
-  def drawOglSprite(s:OglSprite, x:Int, y:Int) {
+  def drawOglSprite(s:OglSprite, x:Int, y:Int): Unit = {
     spriteDraws.append(() => {
       s.draw(batch, x, y)
     })
   }
 
-  def drawLine(pt:Point2d, pr:Point2d, color:Color) {
+  def drawLine(pt:Point2d, pr:Point2d, color:Color): Unit = {
     shape.begin(ShapeType.Line)
     shape.setColor(color.toLibgdxColor)
     shape.line(pt.x.toFloat, pt.y.toFloat, pr.x.toFloat, pr.y.toFloat)
@@ -77,14 +77,14 @@ class Renderer(screenWidth:Int, screenHeight:Int, zoom:Int, tileset:Tileset){
 
   }
 
-  def drawPoint(pt:Point2d, color:Color, size:Int=2) {
+  def drawPoint(pt:Point2d, color:Color, size:Int=2): Unit = {
     shape.begin(ShapeType.Filled)
     shape.setColor(color.toLibgdxColor)
     shape.circle(pt.x.toFloat, pt.y.toFloat, size)
     shape.end()
   }
 
-  def drawPolygonFloat(pts:Array[Float], color:Color) {
+  def drawPolygonFloat(pts:Array[Float], color:Color): Unit = {
     shape.begin(ShapeType.Line)
     shape.setColor(color.toLibgdxColor)
     shape.polygon(pts)
@@ -97,7 +97,7 @@ class Renderer(screenWidth:Int, screenHeight:Int, zoom:Int, tileset:Tileset){
     }
   }*/
 
-  def drawRect(x:Int, y:Int, rwidth:Int, rheight:Int, color:Color) {
+  def drawRect(x:Int, y:Int, rwidth:Int, rheight:Int, color:Color): Unit = {
     shapeDraws.append(() => {
       shape.begin(ShapeType.Line)
       shape.setColor(color.toLibgdxColor)
@@ -106,14 +106,14 @@ class Renderer(screenWidth:Int, screenHeight:Int, zoom:Int, tileset:Tileset){
     })
   }
 
-  def translateShape(x:Int, y:Int)(f:() => Unit) {
+  def translateShape(x:Int, y:Int)(f:() => Unit): Unit = {
     camera.translate(-x, -y)
     shape.setProjectionMatrix(camera.getProjection)
     f()
     camera.translate(x, y)
   }
 
-  def drawTileRaw(t:Tile, x:Double, y:Double) {
+  def drawTileRaw(t:Tile, x:Double, y:Double): Unit = {
     if (x < 0 || y < 0 || x > screenWidth || y > screenHeight) {
       //do nothing
     } else {

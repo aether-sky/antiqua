@@ -55,7 +55,7 @@ object Line {
         startY += dy2
       }
     }
-    output
+    output.toSeq
   }
 }
 case class Line(p:Point2d, q:Point2d) {

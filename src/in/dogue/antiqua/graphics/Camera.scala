@@ -9,11 +9,11 @@ class Camera(width:Int, height:Int) {
     c
   }
 
-  def translate(x:Int, y:Int) {
+  def translate(x:Int, y:Int): Unit = {
     cam.translate(x, y)
   }
 
-  def zoom(f:Double) {
+  def zoom(f:Double): Unit = {
     cam.zoom = f.toFloat
   }
 

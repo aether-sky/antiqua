@@ -31,7 +31,7 @@ object Circle {
       }
     }
 
-    output
+    output.toSeq
   }
 
   def fill(x0:Int, y0:Int, r:Int, f:Cell=>Double): Seq[(Cell, Double)] = {
