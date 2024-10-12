@@ -295,6 +295,10 @@ object CP437 {
   val doubleBorder = new BorderCodePage(
     CP437.║, CP437.═, CP437.╔, CP437.╗, CP437.╚, CP437.╝
   )
+  
+  val singleBorder = new BorderCodePage(
+    CP437.│, CP437.─, CP437.┌, CP437.┐, CP437.└, CP437.┘
+  )
 }
 
 case class CP437(index:Int, char:Char='?', unicode:Char) {

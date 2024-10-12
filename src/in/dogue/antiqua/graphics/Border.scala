@@ -1,8 +1,13 @@
 package in.dogue.antiqua.graphics
 
 import com.deweyvm.gleany.graphics.Color
-import in.dogue.antiqua.Antiqua._
+import in.dogue.antiqua.Antiqua.*
+import in.dogue.antiqua.data.CP437
 
+object Border {
+  def double(bg:Color,fg:Color)(width:Int,height:Int):Border = Border(CP437.doubleBorder)(bg, fg)(width,height)
+  def single(bg:Color,fg:Color)(width:Int,height:Int):Border = Border(CP437.singleBorder)(bg, fg)(width,height)
+}
 
 case class Border(
     bcp:BorderCodePage
