@@ -1,11 +1,17 @@
 package in.dogue.antiqua
 
-import in.dogue.antiqua.data._
+import com.deweyvm.gleany.graphics.Color
+import in.dogue.antiqua.data.*
 import in.dogue.antiqua.graphics.{Animation, Tile}
-import in.dogue.antiqua.data.aug._
+import in.dogue.antiqua.data.aug.*
 
 object Antiqua {
   type TileGroup = Seq[(Cell,Tile)]
+  extension (s: String)
+    def toTileGroup(bg:Color, fg:Color):TileGroup = {
+      s.zipWithIndex.map { (c, i) => ((i, 0), CP437.unicodeToCode(c).mkTile(bg, fg)) }
+
+    }
   type AnimationGroup = Seq[(Cell,Animation)]
   type Vox = (Int,Int,Int)
   type Cell = (Int,Int)
